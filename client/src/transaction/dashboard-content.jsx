@@ -86,13 +86,14 @@ function DashboardContent() {
           </div>
           <div className="ms-auto">
             <Button
+              id="myButton"
               variant="success"
               size="sm"
               disable={state === "pending"}
               p={2}
               onClick={() => setTransactionItemFormData({})}
             >
-              <Icon path={mdiCashPlus} size={0.8} /> Add transation
+              <Icon path={mdiCashPlus} size={0.8} /> Add transaction
             </Button>
           </div>
         </Stack>

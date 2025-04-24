@@ -19,6 +19,7 @@ function TransactionListProvider({ children }) {
       return { ...current, state: "pending" };
     });
     const result = await FetchHelper.transaction.list({ date: selectedMonth });
+
     setTransactionListDto((current) => {
       if (result.ok) {
         return { ...current, state: "ready", data: result.data, error: null };
