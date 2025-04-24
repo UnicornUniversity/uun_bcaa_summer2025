@@ -11,7 +11,6 @@ import { mdiCashPlus, mdiSigma } from "@mdi/js";
 
 import { TransactionListContext } from "./transaction-list-provider";
 import PendingItem from "./pending-item";
-// import TransactionItem from "./transaction-item";
 import TransactionItemForm from "./transaction-item-form";
 import TransactionItemDeleteDialog from "./transaction-item-delete-dialog";
 import CategoryDetail from "./category-detail";
@@ -99,10 +98,10 @@ function DashboardContent() {
         </Stack>
       </Card.Header>
       <Card.Body className="px-0" style={{ position: "relative", top: "40px" }}>
-        {state === "pending"
+        {state === "pending" && !data
           ? [0, 1, 2, 3].map((item) => <PendingItem key={item} />)
           : null}
-        {state === "ready" ? (
+        {data ? (
           <div>
             <Stack className={"px-1 py-2"}>
               <div

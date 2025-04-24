@@ -16,7 +16,7 @@ function TransactionListProvider({ children }) {
 
   async function handleLoad() {
     setTransactionListDto((current) => {
-      return { ...current, state: "pending" };
+      return { ...current, data: undefined, state: "pending" };
     });
     const result = await FetchHelper.transaction.list({ date: selectedMonth });
 

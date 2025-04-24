@@ -3,11 +3,12 @@ import { useContext } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 import { TransactionListContext } from "./transaction-list-provider.jsx";
 
 function TransactionItemForm({ item, onClose }) {
-  const { state, data, handlerMap } = useContext(TransactionListContext);
+  const { state, data, error, handlerMap } = useContext(TransactionListContext);
 
   return (
     <Modal show={true} onHide={onClose}>
@@ -37,6 +38,9 @@ function TransactionItemForm({ item, onClose }) {
           <Modal.Title>{item?.id ? "Update" : "Add"} transaction</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          {state === "error" ? (
+            <Alert variant={"danger"}>{error.message}</Alert>
+          ) : null}
           <Form.Label>Counter party</Form.Label>
           <Form.Control
             type="text"
